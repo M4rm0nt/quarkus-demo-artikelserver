@@ -7,7 +7,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class ArtikelInput {
+public class ArtikelCreateInput {
 
     private String ean;
 
