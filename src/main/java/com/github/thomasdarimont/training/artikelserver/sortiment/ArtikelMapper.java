@@ -1,9 +1,9 @@
 package com.github.thomasdarimont.training.artikelserver.sortiment;
 
-import com.github.thomasdarimont.training.artikelserver.sortiment.data.ArtikelEntity;
+import com.github.thomasdarimont.training.artikelserver.sortiment.rest.ArtikelSearchInput;
+import com.github.thomasdarimont.training.artikelserver.sortiment.service.ArtikelEntity;
 import com.github.thomasdarimont.training.artikelserver.sortiment.rest.ArtikelCreateInput;
 import com.github.thomasdarimont.training.artikelserver.sortiment.rest.ArtikelOutput;
-import com.github.thomasdarimont.training.artikelserver.sortiment.rest.support.SearchInput;
 import com.github.thomasdarimont.training.artikelserver.sortiment.service.ArtikelModel;
 import com.github.thomasdarimont.training.artikelserver.sortiment.service.support.SearchModel;
 
@@ -25,7 +25,7 @@ public interface ArtikelMapper {
 
     ArtikelEntity modelToEntity(ArtikelModel model);
 
-    SearchModel inputToModel(SearchInput input);
+    SearchModel inputToModel(ArtikelSearchInput input);
 
     default Sort parseSort(String sortString) {
         

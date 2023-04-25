@@ -1,4 +1,4 @@
-package com.github.thomasdarimont.training.artikelserver.sortiment.data;
+package com.github.thomasdarimont.training.artikelserver.sortiment.service;
 
 import io.quarkus.hibernate.orm.panache.PanacheQuery;
 import io.quarkus.hibernate.orm.panache.PanacheRepository;
@@ -10,7 +10,7 @@ import javax.enterprise.context.ApplicationScoped;
 import com.github.thomasdarimont.training.artikelserver.sortiment.service.support.SearchModel;
 
 @ApplicationScoped
-public class ArtikelRepository implements PanacheRepository<ArtikelEntity> {
+class ArtikelRepository implements PanacheRepository<ArtikelEntity> {
 
     private static final int DEFAULT_PAGE = 0;
     private static final int DEFAULT_PAGE_SIZE = 1000;
@@ -22,7 +22,7 @@ public class ArtikelRepository implements PanacheRepository<ArtikelEntity> {
             return findAll();
         }
 
-        PanacheQuery<ArtikelEntity> query = null;
+        PanacheQuery<ArtikelEntity> query;
         
         var queryString = search.getQuery();
         var sort = search.getSortOr(DEFAULT_SORT);

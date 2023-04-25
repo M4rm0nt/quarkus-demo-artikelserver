@@ -1,4 +1,4 @@
-package com.github.thomasdarimont.training.artikelserver.sortiment.data;
+package com.github.thomasdarimont.training.artikelserver.sortiment.service;
 
 import io.quarkus.hibernate.orm.panache.PanacheEntity;
 import lombok.Getter;
