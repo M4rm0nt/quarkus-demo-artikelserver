@@ -1,4 +1,4 @@
-package com.github.thomasdarimont.training.artikelserver.sortiment.rest.support;
+package com.github.thomasdarimont.training.artikelserver.sortiment.rest;
 
 import java.util.Map;
 
@@ -8,7 +8,7 @@ import javax.ws.rs.ext.ExceptionMapper;
 import javax.ws.rs.ext.Provider;
 
 @Provider
-public class SortimentExceptionMapper implements ExceptionMapper<Throwable> {
+public class ArtikelExceptionMapper implements ExceptionMapper<Throwable> {
 
     @Override
     public Response toResponse(Throwable exception) {
