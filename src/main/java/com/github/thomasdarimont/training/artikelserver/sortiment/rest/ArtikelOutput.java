@@ -9,9 +9,9 @@ import lombok.ToString;
 @ToString
 public class ArtikelOutput {
 
-    Long id;
+    private Long id;
 
-    String ean;
+    private String ean;
 
-    String bezeichnung;
+    private String bezeichnung;
 }

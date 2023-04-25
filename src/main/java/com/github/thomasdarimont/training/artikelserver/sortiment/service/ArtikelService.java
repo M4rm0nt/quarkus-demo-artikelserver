@@ -7,8 +7,6 @@ import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 import javax.transaction.Transactional;
 
-import com.github.thomasdarimont.training.artikelserver.sortiment.service.support.SearchModel;
-
 import lombok.RequiredArgsConstructor;
 
 @ApplicationScoped
@@ -25,7 +23,7 @@ public class ArtikelService {
         return artikelRepository.findAll().stream().map(MAPPER::entityToModel).toList();
     }
 
-    public List<ArtikelModel> search(SearchModel search) {
+    public List<ArtikelModel> search(ArtikelSearchModel search) {
         return artikelRepository.query(search).stream().map(MAPPER::entityToModel).toList();
     }
 

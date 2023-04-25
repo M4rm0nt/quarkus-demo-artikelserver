@@ -7,9 +7,9 @@ import lombok.Setter;
 @Setter
 public class ArtikelModel {
 
-    Long id;
+    private Long id;
 
-    String ean;
+    private String ean;
 
-    String bezeichnung;
+    private String bezeichnung;
 }

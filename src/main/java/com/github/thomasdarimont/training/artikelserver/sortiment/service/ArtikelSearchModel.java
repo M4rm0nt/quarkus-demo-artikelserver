@@ -1,4 +1,4 @@
-package com.github.thomasdarimont.training.artikelserver.sortiment.service.support;
+package com.github.thomasdarimont.training.artikelserver.sortiment.service;
 
 import io.quarkus.panache.common.Sort;
 import lombok.Getter;
@@ -8,7 +8,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class SearchModel {
+public class ArtikelSearchModel {
 
     private String query;
 

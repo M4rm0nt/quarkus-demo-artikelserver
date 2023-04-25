@@ -7,16 +7,16 @@ import io.quarkus.panache.common.Sort.Direction;
 
 import javax.enterprise.context.ApplicationScoped;
 
-import com.github.thomasdarimont.training.artikelserver.sortiment.service.support.SearchModel;
-
 @ApplicationScoped
 class ArtikelRepository implements PanacheRepository<ArtikelEntity> {
 
     private static final int DEFAULT_PAGE = 0;
+
     private static final int DEFAULT_PAGE_SIZE = 1000;
+
     private static final Sort DEFAULT_SORT = Sort.by("ean", Direction.Ascending);
 
-    public PanacheQuery<ArtikelEntity> query(SearchModel search) {
+    public PanacheQuery<ArtikelEntity> query(ArtikelSearchModel search) {
 
         if (search == null) {
             return findAll();

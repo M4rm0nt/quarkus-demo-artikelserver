@@ -5,7 +5,7 @@ import com.github.thomasdarimont.training.artikelserver.sortiment.service.Artike
 import com.github.thomasdarimont.training.artikelserver.sortiment.rest.ArtikelCreateInput;
 import com.github.thomasdarimont.training.artikelserver.sortiment.rest.ArtikelOutput;
 import com.github.thomasdarimont.training.artikelserver.sortiment.service.ArtikelModel;
-import com.github.thomasdarimont.training.artikelserver.sortiment.service.support.SearchModel;
+import com.github.thomasdarimont.training.artikelserver.sortiment.service.ArtikelSearchModel;
 
 import io.quarkus.panache.common.Sort;
 
@@ -25,8 +25,13 @@ public interface ArtikelMapper {
 
     ArtikelEntity modelToEntity(ArtikelModel model);
 
-    SearchModel inputToModel(ArtikelSearchInput input);
+    ArtikelSearchModel inputToModel(ArtikelSearchInput input);
 
+    /**
+     * Converts sort strings like "ean:asc,bezeichnung:desc" into proper {@link Sort} objects.
+     * @param sortString
+     * @return
+     */
     default Sort parseSort(String sortString) {
         
         if (sortString == null) {
