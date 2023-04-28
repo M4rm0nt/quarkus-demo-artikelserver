@@ -2,12 +2,10 @@ package com.github.thomasdarimont.training.artikelserver;
 
 import com.github.thomasdarimont.training.artikelserver.sortiment.rest.ArtikelOutput;
 import io.quarkus.test.junit.QuarkusTest;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import static io.restassured.RestAssured.given;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.hamcrest.CoreMatchers.is;
 
 @QuarkusTest
 public class ArtikelOutputResourceTest {
