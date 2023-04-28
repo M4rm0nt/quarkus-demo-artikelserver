@@ -1,18 +1,20 @@
 package com.github.thomasdarimont.training.artikelserver.sortiment.rest;
 
+import static com.github.thomasdarimont.training.artikelserver.sortiment.ArtikelMapper.MAPPER;
+
+import java.util.List;
+
 import com.github.thomasdarimont.training.artikelserver.sortiment.service.ArtikelService;
 
-import lombok.RequiredArgsConstructor;
-
 import jakarta.ws.rs.BeanParam;
+import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.PathParam;
-
-import static com.github.thomasdarimont.training.artikelserver.sortiment.ArtikelMapper.MAPPER;
-
-import java.util.List;
+import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.core.Response.Status;
+import lombok.RequiredArgsConstructor;
 
 @Path("/api/sortiment/artikel")
 @RequiredArgsConstructor
@@ -51,6 +53,23 @@ public class ArtikelResource {
     @Path("{id}")
     public ArtikelOutput findById(@PathParam("id") Long id) {
         return MAPPER.modelToOutput(artikelService.getFindById(id));
+    }
+    
+    /**
+     * curl -v -H "accept-type: application/json" http://localhost:8080/api/sortiment/artikel/5
+     * @param id
+     * @return
+     */
+    @DELETE
+    @Path("{id}")
+    public Response deleteById(@PathParam("id") Long id) {
+    	boolean deleted = artikelService.deleteById(id);
+    	
+    	if (deleted) {
+    		return Response.noContent().build();
+    	}
+    	
+    	return Response.status(Status.NOT_FOUND).build();
     }
 
     /**

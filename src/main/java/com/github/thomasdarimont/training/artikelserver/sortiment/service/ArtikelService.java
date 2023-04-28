@@ -18,6 +18,11 @@ public class ArtikelService {
     public ArtikelModel getFindById(Long id) {
         return MAPPER.entityToModel(artikelRepository.findById(id));
     }
+    
+    @Transactional    
+    public boolean deleteById(Long id) {
+        return artikelRepository.deleteById(id);
+    }
 
     public List<ArtikelModel> findAll() {
         return artikelRepository.findAll().stream().map(MAPPER::entityToModel).toList();
